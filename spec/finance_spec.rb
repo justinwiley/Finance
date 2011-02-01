@@ -73,6 +73,11 @@ describe Finance do
     it "should accept a coupon amount, face value, interest rate and returns pv" do
       pvb(10,100,0.065,6).r.should == 116.9435
     end
+    
+    it "should accept optional period per annum" do
+      pvb(10,100,0.065,6,2).r.should == 166.1978
+    end
   end
+ 
 
 end

@@ -15,8 +15,9 @@ module Finance
     a*(1-((1+i)**-n))/i
   end
   
-  def pvb(c,f,r,n)
-    ir = 1+r
+  def pvb(c,f,r,t,m=1)
+    n = t*m
+    ir = 1+r/m
     value_of_coupons = (0..n).inject{|s,v| s+(c/ir**v)}
     value_of_face = f/ir**n
     value_of_coupons + value_of_face
