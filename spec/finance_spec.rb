@@ -69,4 +69,10 @@ describe Finance do
     end
   end
 
+  describe "Present Value of a Coupon Bond" do
+    it "should accept a coupon amount, face value, interest rate and returns pv" do
+      pvb(10,100,0.065,6).r.should == 116.9435
+    end
+  end
+
 end
