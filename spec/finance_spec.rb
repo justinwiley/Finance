@@ -11,14 +11,14 @@ end
 
 describe Finance do
 
-  describe "Exceptional behaviour" do
+  describe "Exceptional Behaviour" do
     it "should not allow non-floats, after hard type cast"
+    it "should not allow r's higher than 1"
+    it "should range time scale -1 < n"
   end
 
 
   describe "Present Value" do
-    it "should not allow r's higher than 1"
-    it "should range time scale -1 < n"
     it "should assume period 2 given no time value" 
 
     it "accepts a number, discount rate, and time period and return a time discounted value" do
@@ -76,6 +76,10 @@ describe Finance do
     
     it "should accept optional period per annum" do
       pvb(10,100,0.065,6,2).r.should == 166.1978
+    end
+
+    it "should discount coupons if given zero (i.e. calculate a zero-coupon bond)" do
+      pvb(0,100,0.065,6,1).r.should == 68.5334
     end
   end
  

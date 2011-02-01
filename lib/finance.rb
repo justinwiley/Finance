@@ -18,8 +18,9 @@ module Finance
   def pvb(c,f,r,t,m=1)
     n = t*m
     ir = 1+r/m
-    value_of_coupons = (0..n).inject{|s,v| s+(c/ir**v)}
-    value_of_face = f/ir**n
-    value_of_coupons + value_of_face
+    face_value = f/ir**n
+    return face_value if c == 0  # handle zero-coupon bonds
+    coupon_value = (0..n).inject{|s,v| s+(c/ir**v)}
+    coupon_value + face_value
   end
 end
