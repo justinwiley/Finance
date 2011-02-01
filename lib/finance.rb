@@ -23,4 +23,5 @@ module Finance
     coupon_value = (0..n).inject{|s,v| s+(c/ir**v)}
     coupon_value + face_value
   end
+  
 end

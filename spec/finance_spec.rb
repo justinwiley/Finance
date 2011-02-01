@@ -82,6 +82,13 @@ describe Finance do
       pvb(0,100,0.065,6,1).r.should == 68.5334
     end
   end
+  
+  describe "Macaulay Duration" do
+    it "should given coupon, face value, interest, and time, return duration (when majority of bond returns)" do
+      pending
+      macaulay_duration(8,100,0.08,3,1).r.should == 2.78
+    end
+  end
  
 
 end
